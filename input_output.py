@@ -1,3 +1,7 @@
+"""
+Author Lin Yan Ruei @CCU Taiwan
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 from qutip import *
