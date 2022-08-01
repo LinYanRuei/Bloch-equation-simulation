@@ -1,3 +1,7 @@
+"""
+Author Lin Yan Ruei @CCU Taiwan
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import my_function as fun
@@ -86,28 +90,28 @@ for i in range(len(q.pwr_range)):
 data_range = np.arange(0,21,1)
 t_plot = np.linspace(0,6,6981)*1e-6
 ############################################# Pwr_dep
-# result_raw_BG = []
+result_raw_BG = []
 
-# q.plot_result(data_range,t_plot,z_BG,221)
-# q.plot_result(data_range,t_plot,zz,223)
+q.plot_result(data_range,t_plot,z_BG,221)
+q.plot_result(data_range,t_plot,zz,223)
 
-# pwr_range = np.linspace(-20,20,21)
-# result = []
-# for pwr in pwr_range:
-#     q = fun.calculation_rk4(argDicts,pwr,detune,expDicts,dirDicts)
-#     result.append(q.W_in(t_range)*unit)
-# result = np.array(result)
-# q.plot_result_2(t_range_use,pwr_range,result,222)
+pwr_range = np.linspace(-20,20,21)
+result = []
+for pwr in pwr_range:
+    q = fun.calculation_rk4(argDicts,pwr,detune,expDicts,dirDicts)
+    result.append(q.W_in(t_range)*unit)
+result = np.array(result)
+q.plot_result_2(t_range_use,pwr_range,result,222)
 
-# result = []
-# for pwr in pwr_range:
-#     q = fun.calculation_rk4(argDicts,pwr,detune,expDicts,dirDicts)
-#     state_save = []           
-#     sigX,sigY = q.pauli_matrix(t_range,state,state_save)             
-#     output_digitizer = fun.dBm2vp(fun.vp2dBm(q.W_out(sigX,sigY,t_range)*unit )+q.gain) 
-#     result.append(output_digitizer)
-# q.plot_result_2(t_range_use,pwr_range,result,224)
-# plt.show()
+result = []
+for pwr in pwr_range:
+    q = fun.calculation_rk4(argDicts,pwr,detune,expDicts,dirDicts)
+    state_save = []           
+    sigX,sigY = q.pauli_matrix(t_range,state,state_save)             
+    output_digitizer = fun.dBm2vp(fun.vp2dBm(q.W_out(sigX,sigY,t_range)*unit )+q.gain) 
+    result.append(output_digitizer)
+q.plot_result_2(t_range_use,pwr_range,result,224)
+plt.show()
 """
 detuning
 q.plot_result(q.detune_range,t_plot,zz,223)
@@ -160,19 +164,3 @@ q.plot_result_2(t_range_use,detune_range,result,224)
 
 
 
-# popt,pcov = fit(q.fit_func,x_BG,np.abs(z_BG[:,2]))
-# plt.plot(x_BG,q.fit_func(x_BG,*popt))
-# plt.show()
-# result_fit_in = []
-# for i in data_range:
-#     popt,pcov = fit(q.fit_func,x_BG,np.abs(z_BG[:,i]))
-#     result_fit_in.append(q.fit_func(x_BG,*popt))
-# result_fit_in = np.array(result_fit_in)
-# X,Y = np.meshgrid(t_plot,data_range)
-# cp_fit_in = plt.contourf(X,Y,result_fit_in,1000,cmap='jet')
-# cbar_fit_in = plt.colorbar(cp_fit_in)
-# cbar_fit_in.ax.set_ylabel('amplitude')
-# plt.title('Fit data (In)')
-# plt.ylabel('Input (power)')
-# plt.xlabel('time')
-# plt.show()
