@@ -76,18 +76,4 @@ plt.plot(t,f(t))
 plt.show()
 
 
-# s = (1000,1000)
-# r = np.empty(s)
-# for i in range(1000):
-#     detuning = delta_range[i]
-#     delta = detuning
-#     for j in range(1000):
-#         rf = rf_range[j]
-#         r[i][j] = (np.abs(1-gamma*(1-1j*delta)/(1+delta**2+rf**2/gamma)))
 
-# plt.imshow(r)
-# plt.title('Analitical refrection coefficient')
-# plt.ylabel('Rabi frequency')
-# plt.xlabel('detuning')
-# plt.colorbar()
-# plt.show()
